@@ -1,0 +1,50 @@
+.leftblock {
+  float: left;
+  font-weight: bold;
+  color: #FFFFFF;
+  width: 300px;
+  height: 100vh;
+
+    &__header {
+      background-color: #253141;
+      height: 100px;
+      width: 100%;
+
+        &__contents {
+          line-height: 100px;
+          margin: auto 20px;
+          width: 260px;
+
+          &__username {
+            font-size: 16px;
+            float: left;
+          }
+          ul {
+            float: right;
+          }
+        }
+    }
+
+    &__groups {
+      background-color: #2f3e51;
+      height: calc(100vh - 100px);
+      width: 100%;
+      overflow: scroll;
+        &__contents {
+          margin: auto 20px;
+          width: 260px;
+
+          &__message {
+            padding-top: 20px;
+
+              &__group {
+                font-size: 15px;
+              }
+              p {
+                margin: 5px auto 40px auto;
+                font-size: 11px;
+              }
+          }
+        }
+    }
+}
