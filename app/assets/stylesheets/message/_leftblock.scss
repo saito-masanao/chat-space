@@ -47,11 +47,13 @@
             padding-top: 20px;
 
               &__group {
-                font-size: 15px;
-              }
-              p {
-                margin: 5px auto 40px auto;
-                font-size: 11px;
+                &__name {
+                  font-size: 15px;
+                }
+                p {
+                  margin: 5px auto 40px auto;
+                  font-size: 11px;
+                }
               }
           }
         }

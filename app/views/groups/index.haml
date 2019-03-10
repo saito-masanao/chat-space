@@ -13,8 +13,13 @@
   .leftblock__groups
     .leftblock__groups__contents
       .leftblock__groups__contents__message
-        .leftblock__groups__contents__message__group testgroup
-        %p lastmessage
+        .leftblock__groups__contents__message__group
+          - current_user.groups.each do |group|
+            / = link_to group_messages_path(group) do
+            .leftblock__groups__contents__message__group__name
+              = group.name
+            %p
+              lastmessage
 
 .rightblock
   .rightblock__header
