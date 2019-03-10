@@ -21,6 +21,15 @@
           }
           ul {
             float: right;
+            li {
+              float: right;
+                a {
+                  color: white;
+                    .fa.fa-edit {
+                      margin-right: 4px;
+                    }
+                }
+            }
           }
         }
     }

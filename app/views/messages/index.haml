@@ -1,15 +1,15 @@
-= render "made_group"
-
 .leftblock
   .leftblock__header
     .leftblock__header__contents
       %p.leftblock__header__contents__username
-        アカウント名
+        = current_user.name
       %ul
-        %li.fa.fa-edit
-          / = link_to '#'
-        %li.fa.fa-cog
-          / = link_to '#'
+        %li
+          = link_to edit_user_path(current_user.id) do
+            %i.fa.fa-cog
+        %li
+          = link_to new_group_path do
+            %i.fa.fa-edit
   .leftblock__groups
     .leftblock__groups__contents
       .leftblock__groups__contents__message

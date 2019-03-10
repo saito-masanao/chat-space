@@ -23,8 +23,8 @@
         }
         &__edit {
           float: right;
-          border: solid 1px $samecolor;
-          color: $samecolor;
+          border: solid 1px $light_blue;
+          color: $light_blue;
           padding: 0 20px;
           margin-top: 28px;
           line-height: 40px;
@@ -94,7 +94,7 @@
                   }
               }
               input.sendbox{
-                background-color: $samecolor;
+                background-color: $light_blue;
                 height: 50px;
                 width: 100px;
                 color: white;
