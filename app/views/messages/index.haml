@@ -1,0 +1,50 @@
+.leftblock
+  .leftblock__header
+    .leftblock__header__contents
+      %p.leftblock__header__contents__username
+        = current_user.name
+      %ul
+        %li
+          = link_to edit_user_path(current_user.id) do
+            %i.fa.fa-cog
+        %li
+          = link_to new_group_path do
+            %i.fa.fa-edit
+  .leftblock__groups
+    .leftblock__groups__contents
+      .leftblock__groups__contents__message
+        .leftblock__groups__contents__message__group
+          - current_user.groups.each do |group|
+            = link_to group_messages_path(group) do
+              .leftblock__groups__contents__message__group__name
+                = group.name
+              %p
+                lastmessage
+
+.rightblock
+  .rightblock__header
+    .rightblock__header__contents
+      .rightblock__header__contents__contents
+        .rightblock__header__contents__contents__group
+          test-group
+        .rightblock__header__contents__contents__member
+          Member : user1, user2
+      .rightblock__header__contents__edit
+        Edit
+  .rightblock__messages
+    .rightblock__messages__contents
+      .rightblock__messages__contents__message
+        .rightblock__messages__contents__message__user
+          .rightblock__messages__contents__message__user__username
+            test-user
+          .rightblock__messages__contents__message__user__date
+            date
+        .rightblock__messages__contents__message__content
+          message
+  .rightblock__form
+    .rightblock__form__contents
+      %form.rightblock__form__contents__formbox
+        .rightblock__form__contents__formbox__messagebox
+          %input.message(placeholder="type a message" type="text")
+          %i.fa.fa-image
+        %input.sendbox(type="submit" value="Send")
