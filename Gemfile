@@ -58,3 +58,6 @@ gem 'erb2haml'
 
 # 歯車マークなどの実装
 gem "font-awesome-rails"
+
+# ログイン機能の実装
+gem "devise"
