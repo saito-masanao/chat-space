@@ -1,61 +1,48 @@
-.leftblock {
-  float: left;
-  font-weight: bold;
-  color: #FFFFFF;
+.side-bar {
+  box-sizing: border-box;
+  color: $white;
   width: 300px;
-  height: 100vh;
-
-    &__header {
-      background-color: #253141;
-      height: 100px;
-      width: 100%;
-
-        &__contents {
-          line-height: 100px;
-          margin: auto 20px;
-          width: 260px;
-
-          &__username {
-            font-size: 16px;
-            float: left;
-          }
-          ul {
-            float: right;
-            li {
-              float: right;
-                a {
-                  color: white;
-                    .fa.fa-edit {
-                      margin-right: 4px;
-                    }
-                }
-            }
-          }
-        }
+  float: left;
+  .header {
+    background-color: $side_blue_dark;
+    height: 100px;
+    line-height: 100px;
+    padding: 0 20px;
+    &__name {
+      display: inline-block;
+      font-size: $side_header_font;
+      font-weight: bold;
     }
-
-    &__groups {
-      background-color: #2f3e51;
-      height: calc(100vh - 100px);
-      width: 100%;
-      overflow: scroll;
-        &__contents {
-          margin: auto 20px;
-          width: 260px;
-
-          &__message {
-            padding-top: 20px;
-
-              &__group {
-                &__name {
-                  font-size: 15px;
-                }
-                p {
-                  margin: 5px auto 40px auto;
-                  font-size: 11px;
-                }
-              }
-          }
-        }
+    &__lists {
+      display: inline-block;
+      float: right;
+      .list {
+        display: inline-block;
+      }
+      .icon {
+        color: $white;
+        font-size: $side_header_font;
+      }
     }
+  }
+
+  .groups {
+    background-color: $side_blue_light;
+    height: calc(100vh - 100px);
+    padding: 0 20px;
+    overflow: scroll;
+    .group {
+      box-sizing: border-box;
+      padding: 20px 0 40px;
+      &__name {
+        color: $white;
+        font-size: $side_group_name;
+      }
+      &__message {
+        color: $white;
+        font-size: $side_group_message;
+        margin-top: 5px;
+      }
+    }
+  }
 }
