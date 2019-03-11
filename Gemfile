@@ -61,3 +61,7 @@ gem "font-awesome-rails"
 
 # ログイン機能の実装
 gem "devise"
+
+# 画像送信機能
+gem "carrierwave"
+gem "mini_magick"
