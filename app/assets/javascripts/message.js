@@ -54,8 +54,9 @@ $(function(){
     })
     .done(function(data){
       var html = buildHTML(data);
-      $('.messages').append(html);
+      $('.messages').append(html)
       $('.form__message').val('')
+      $(".messages").animate({scrollTop: $('.messages')[0].scrollHeight}, "slow", "swing");
     })
     .fail(function(){
       alert('error');
