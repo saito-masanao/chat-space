@@ -1,5 +1,5 @@
 $(function(){
-  function build_message_HTML(message){
+  function build_new_HTML(message){
     var html =`<div class = "message">
                  <div class = "upper-message">
                    <div class = "upper-message__user-name">
@@ -53,7 +53,7 @@ $(function(){
       contentType: false,
     })
     .done(function(new_message_data){
-      var html = build_message_HTML(new_message_data);
+      var html = build_new_HTML(new_message_data);
       $('.messages').append(html)
       $('.form__message').val('')
       $(".messages").animate({scrollTop: $('.messages')[0].scrollHeight}, "slow", "swing");
