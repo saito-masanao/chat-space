@@ -33,7 +33,7 @@ $(function(){
       }
     })
     .fail(function(){
-      alert('error');
+      alert('ユーザーの検索に失敗しました');
     })
   });
 });
