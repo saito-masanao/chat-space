@@ -5,24 +5,27 @@
       %ul
         - group.errors.full_messages.each do |message|
           %li= message
-  .chat-group-form__field
+  .chat-group-form__field.clearfix
     .chat-group-form__field--left
       = f.label :グループ名, class: 'chat-group-form__label'
     .chat-group-form__field--right
       = f.text_field :name, class: 'chat__group_name chat-group-form__input', placeholder: 'グループ名を入力してください'
-  .chat-group-form__field
+  .chat-group-form__field.clearfix
     .chat-group-form__field--left
       = f.label :チャットメンバーを追加, class: 'chat-group-form__label'
     .chat-group-form__field--right
       .chat-group-form__search
         = f.text_field :name, class: 'chat-group-form__input', id: 'user-search-field', placeholder: '追加したいユーザー名を入力してください'
       #user-search-result
-        / .chat-group-users
-        /   .chat-group-user.clearfix#chat-group-user-22
-        / <input name='chat_group[user_ids][]' type='hidden' value='22'>
-        / <p class='chat-group-user__name'>seo_kyohei</p>
+  .chat-group-form__field.clearfix
+    .chat-group-form__field--left
+      = f.label :チャットメンバー, class: "chat-group-form__label"
+    .chat-group-form__field--right
+      #chat-group-users
+
 
   .chat-group-form__field.clearfix
     .chat-group-form__field--left
     .chat-group-form__field--right
       = f.submit class: 'chat-group-form__action-btn'
+
