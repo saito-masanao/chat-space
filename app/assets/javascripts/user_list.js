@@ -12,6 +12,7 @@ $(function(){
                               </div>`
     $("#user-search-result").append(error_message_html);
   }
+
   $('#user-search-field').on('keyup', function(){
     var form_input = $('#user-search-field').val();
     $.ajax({
@@ -35,5 +36,9 @@ $(function(){
     .fail(function(){
       alert('ユーザーの検索に失敗しました');
     })
+  });
+
+  $(document).on('click', ".chat-group-user__btn--add", function(){
+    console.log("追加される");
   });
 });
