@@ -68,7 +68,6 @@ $(function(){
   });
 
   function update(){
-    console.log($('.message:last').data('id'))
     if($('.message')[0]){
       var message_id = $('.message:last').data('id');
     } else {
