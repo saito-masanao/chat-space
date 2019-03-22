@@ -81,15 +81,12 @@ $(function(){
       data: { message: { id: message_id } },
       dataType: 'json'
     })
-    .done(function(update_messages){
+    .always(function(update_messages){
       console.log($(update_messages))
       $.each(update_messages, function(i, message){
         var html = buildNewMessageHTML(message);
         $('.messages').append(html);
       });
-    })
-    .fail(function(){
-      alert('error');
     })
   }
 });
