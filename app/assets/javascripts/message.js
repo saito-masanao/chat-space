@@ -1,6 +1,6 @@
 $(function(){
   function buildNewMessageHTML(message){
-    var html =`<div class = "message">
+    var html =`<div class = "message" data-id = ${message.id}>
                  <div class = "upper-message">
                    <div class = "upper-message__user-name">
                      ${message.user_name}
@@ -61,14 +61,14 @@ $(function(){
     .fail(function(){
       alert('error');
     })
-  })
+  });
 
   $(function(){
     setInterval(update, 5000);
   });
 
   function update(){
-    console.log($('.message')[0]);
+    console.log($('.message:last').data('id'))
     if($('.message')[0]){
       var message_id = $('.message:last').data('id');
     } else {
@@ -80,10 +80,15 @@ $(function(){
       data: { message: { id: message_id } },
       dataType: 'json'
     })
-    .always(function(data){
+    .done(function(data){
       $.each(data, function(i, data){
-        buildNewMessageHTML(data);
+        var new_message_html = buildNewMessageHTML(data);
+        $('.messages').append(new_message_html);
+        $(".messages").animate({scrollTop: $('.messages')[0].scrollHeight}, "slow", "swing");
       });
-    });
+    })
+    .fail(function(){
+      alert('error');
+    })
   }
-})
+});
