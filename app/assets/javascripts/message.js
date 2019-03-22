@@ -62,4 +62,28 @@ $(function(){
       alert('error');
     })
   })
+
+  $(function(){
+    setInterval(update, 5000);
+  });
+
+  function update(){
+    console.log($('.message')[0]);
+    if($('.message')[0]){
+      var message_id = $('.message:last').data('id');
+    } else {
+      var message_id = 0
+    }
+    $.ajax({
+      url: location.href,
+      type: 'GET',
+      data: { message: { id: message_id } },
+      dataType: 'json'
+    })
+    .always(function(data){
+      $.each(data, function(i, data){
+        buildNewMessageHTML(data);
+      });
+    });
+  }
 })
