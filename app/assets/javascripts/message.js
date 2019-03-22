@@ -53,6 +53,7 @@ $(function(){
       contentType: false,
     })
     .done(function(new_message){
+      console.log(new_message)
       var html = buildNewMessageHTML(new_message);
       $('.messages').append(html)
       $('.form__message').val('')
@@ -68,6 +69,7 @@ $(function(){
   });
 
   function update(){
+    console.log($('.message:last').data('id'))
     if($('.message')[0]){
       var message_id = $('.message:last').data('id');
     } else {
@@ -79,11 +81,11 @@ $(function(){
       data: { message: { id: message_id } },
       dataType: 'json'
     })
-    .done(function(data){
-      $.each(data, function(i, data){
-        var new_message_html = buildNewMessageHTML(data);
-        $('.messages').append(new_message_html);
-        $(".messages").animate({scrollTop: $('.messages')[0].scrollHeight}, "slow", "swing");
+    .done(function(update_messages){
+      console.log($(update_messages))
+      $.each(update_messages, function(i, message){
+        var html = buildNewMessageHTML(message);
+        $('.messages').append(html);
       });
     })
     .fail(function(){
