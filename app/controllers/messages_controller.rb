@@ -6,7 +6,7 @@ class MessagesController < ApplicationController
     @messages = @group.messages.includes(:user)
     respond_to do |format|
         format.html
-        format.json { @new_message = Message.where('id > ?', message_params[:id]).where(group_id: params[:group_id])}
+        format.json { @new_message = @group.messages.where('id > ?', params[:message][:id])}
     end
   end
 
@@ -20,14 +20,14 @@ class MessagesController < ApplicationController
     else
       @messages = @group.messages.includes(:user)
       flash.now[:alert] = 'メッセージを入力してください'
-      render :index
+      render action: :index
     end
   end
 
   private
 
   def message_params
-    params.require(:message).permit(:content, :image, :id).merge(user_id: current_user.id)
+    params.require(:message).permit(:content, :image).merge(user_id: current_user.id)
   end
 
   def set_group

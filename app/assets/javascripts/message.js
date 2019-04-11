@@ -53,7 +53,6 @@ $(function(){
       contentType: false,
     })
     .done(function(new_message){
-      console.log(new_message)
       var html = buildNewMessageHTML(new_message);
       $('.messages').append(html)
       $('.form__message').val('')
@@ -81,12 +80,14 @@ $(function(){
       data: { message: { id: message_id } },
       dataType: 'json'
     })
-    .always(function(update_messages){
-      console.log($(update_messages))
+    .done(function(update_messages){
       $.each(update_messages, function(i, message){
         var html = buildNewMessageHTML(message);
         $('.messages').append(html);
       });
+    })
+    .fail(function(){
+      alert('error');
     })
   }
 });
