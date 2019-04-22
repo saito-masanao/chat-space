@@ -1,5 +1,8 @@
 server '52.68.150.233', user: 'ec2-user', roles: %w{app db web}
 
+config.assets.compile = true
+config.assets.css_compressor = :sass
+config.assets.enabled = true
 # server-based syntax
 # ======================
 # Defines a single server with a list of roles and multiple properties.
