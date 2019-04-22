@@ -22,6 +22,10 @@ namespace :deploy do
     invoke 'unicorn:restart'
   end
 end
+
+config.assets.compile = true
+config.assets.css_compressor = :sass
+config.assets.enabled = true
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
