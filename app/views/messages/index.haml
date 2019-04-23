@@ -15,8 +15,11 @@
         = link_to group_messages_path(group) do
           .group__name
             = group.name
-          .group__message
-            メッセージはまだありません。
+          - if group.messages == []
+            %p.group__message メッセージはありません
+          - else
+            .group__message
+              = group.messages.last.content
 
 .chat
   .header
